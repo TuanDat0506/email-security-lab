@@ -1,4 +1,4 @@
-# 📧 An toàn dịch vụ thư điện tử
+# An toàn dịch vụ thư điện tử
 
 > Bài tập lớn học phần **An toàn mạng (INT1482)** · Khoa An toàn thông tin · Học viện Công nghệ Bưu chính Viễn thông
 > **Nhóm 10 – Lớp 02** · GVHD: **TS. Nguyễn Ngọc Điệp**
@@ -8,11 +8,11 @@
 ![Antivirus](https://img.shields.io/badge/antivirus-ClamAV-red)
 ![Auth](https://img.shields.io/badge/auth-SPF%20%7C%20DKIM%20%7C%20DMARC-green)
 
-## 📌 Giới thiệu
+## Giới thiệu
 
 Đề tài tìm hiểu cách hoạt động của hệ thống thư điện tử, phân tích các lỗ hổng phổ biến của Mail Server và **triển khai các cơ chế bảo mật** để ngăn chặn chúng. Hiệu quả được kiểm chứng bằng **2 kịch bản demo**: giả mạo địa chỉ người gửi và phát tán tệp mã độc qua email, mỗi kịch bản đều so sánh kết quả **trước** và **sau** khi cấu hình an toàn.
 
-## 📑 Mục lục
+## Mục lục
 
 1. [Lý thuyết](#1--lý-thuyết)
 2. [Cấu hình an toàn](#2--cấu-hình-an-toàn)
@@ -23,7 +23,7 @@
 
 ---
 
-## 1. 📚 Lý thuyết
+## 1. Lý thuyết
 
 ### 1.1 Kiến trúc hệ thống Mail
 
@@ -42,7 +42,7 @@
 
 Luồng một phiên SMTP: `EHLO` → `MAIL FROM` → `RCPT TO` → `DATA` → `QUIT`.
 
-> 💡 **Điểm mấu chốt cho Demo 1:** địa chỉ ở lớp *envelope* (`MAIL FROM`) và trường `From:` trong header là **hai thứ khác nhau**, và SMTP gốc không bắt buộc chúng phải khớp.
+> **Điểm mấu chốt cho Demo 1:** địa chỉ ở lớp *envelope* (`MAIL FROM`) và trường `From:` trong header là **hai thứ khác nhau**, và SMTP gốc không bắt buộc chúng phải khớp.
 
 ### 1.3 Các mối đe dọa chính
 
@@ -71,7 +71,7 @@ Phân mức: 1–4 *Thấp* · 5–9 *Trung bình* · 10–16 *Cao* · 17–25 *
 
 ---
 
-## 2. 🔐 Cấu hình an toàn
+## 2. Cấu hình an toàn
 
 ### 2.1 Môi trường thực nghiệm
 
@@ -154,7 +154,7 @@ spf=pass    dkim=pass (header.d=lab.test)    dmarc=pass
 
 ---
 
-## 3. 🎭 Demo 1 – Giả mạo địa chỉ người gửi
+## 3. Demo 1 – Giả mạo địa chỉ người gửi
 
 **Mục tiêu:** chứng minh `From:` hiển thị cho người dùng có thể khác địa chỉ thật ở lớp SMTP envelope, và chứng minh cấu hình an toàn chặn được hành vi này.
 
@@ -187,15 +187,15 @@ DMARC `p=reject` **từ chối** email giả mạo: gửi thất bại, người
 |:-:|:-:|:-:|---|
 | 4/5 | 4/5 | **16/25** | 🟠 Cao |
 
-🎬 **Video demo:** xem tại [`demo/`](demo/) · 📷 Ảnh chụp chi tiết: [báo cáo](report/)
+ **Video demo:** xem tại [`demo/`](demo/) · 📷 Ảnh chụp chi tiết: [báo cáo](report/)
 
 ---
 
-## 4. 🦠 Demo 2 – Phát tán tệp mã độc qua email
+## 4. Demo 2 – Phát tán tệp mã độc qua email
 
 **Mục tiêu:** đánh giá khả năng phát hiện và chặn tệp đính kèm độc hại trong quá trình truyền nhận email.
 
-> ⚠️ Dùng tệp **[EICAR](https://www.eicar.org/download-anti-malware-testfile/)**: mẫu kiểm thử chuẩn của phần mềm diệt virus, **không phải mã độc thật**. Repo này **không** chứa tệp EICAR.
+> Dùng tệp **[EICAR](https://www.eicar.org/download-anti-malware-testfile/)**: mẫu kiểm thử chuẩn của phần mềm diệt virus, **không phải mã độc thật**. Repo này **không** chứa tệp EICAR.
 
 ### Trước khi cấu hình an toàn
 
@@ -211,11 +211,11 @@ Gửi lại cùng email với ClamAV đã tích hợp → thư **bị chặn**, 
 |:-:|:-:|:-:|---|
 | 4/5 | 5/5 | **20/25** | 🔴 Rất cao |
 
-🎬 **Video demo:** xem tại [`demo/`](demo/) · 📷 Ảnh chụp chi tiết: [báo cáo](report/)
+**Video demo:** xem tại [`demo/`](demo/) · 📷 Ảnh chụp chi tiết: [báo cáo](report/)
 
 ---
 
-## 5. 🗂️ Cấu trúc repo
+## 5. Cấu trúc repo
 
 ```
 .
@@ -226,7 +226,7 @@ Gửi lại cùng email với ClamAV đã tích hợp → thư **bị chặn**, 
 └── README.md
 ```
 
-## 6. 👥 Thành viên
+## 6. Thành viên
 
 | STT | Họ và tên | MSSV |
 |:-:|---|---|
@@ -236,7 +236,7 @@ Gửi lại cùng email với ClamAV đã tích hợp → thư **bị chặn**, 
 | 4 | Phạm Văn Phúc | B23DCAT239 |
 | 5 | Nguyễn Thanh Tùng | B23DCAT327 |
 
-## ⚠️ Lưu ý
+## Lưu ý
 
 Dự án chỉ phục vụ **mục đích học tập**, thực hiện trong **môi trường lab cô lập**. Không áp dụng các kỹ thuật demo lên hệ thống thật khi chưa được phép.
 
